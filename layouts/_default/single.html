@@ -1,0 +1,8 @@
+{{ define "main" }}
+<!--这是文章内容的代码-->
+  <div class="post-content">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </div>
+  {{- partial "comments.html" -}}
+{{ end }}

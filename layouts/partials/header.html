@@ -1,0 +1,19 @@
+<header>
+  <div class="logo">
+    <a href="{{ "/" | relLangURL }}">
+      {{ .Site.Title }}
+    </a>
+  </div>
+  <nav>
+    <ul>
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL | safeURL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+    <div class="burger">
+      <div class="top-line"></div>
+      <div class="middle-line"></div>
+      <div class="bottom-line"></div>
+    </div>
+  </nav>
+</header>

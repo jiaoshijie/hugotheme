@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <div class="page_tags">
+    <ul>
+      {{ $data := .Data }}
+      {{ range $key, $value := .Data.Terms.ByCount }}
+        {{ if ($value.Name) }}
+          <li>
+            <a href="{{ $data.Plural | absURL }}/{{ $value.Name | urlize }}">
+                {{ $value.Name }} <span class="terms_count">{{ $value.Count }}</span>
+              </a>
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

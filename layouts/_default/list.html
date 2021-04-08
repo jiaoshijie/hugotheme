@@ -1,0 +1,16 @@
+{{ define "main" }}
+<!--归档标签文件-->
+  {{ range .Data.Pages.GroupByDate "2006" }}
+  <div class="listing_title">{{ .Key }}</div>
+  <div class="listing">
+    {{ range .Pages }}
+      <div class="list-content">
+        <div class="post-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>  <!--标题-->
+          <div class="post-date">{{ dateFormat "01-02" .Date }}</div>  <!--日期-->
+        </div>
+      </div>
+    {{ end }}
+  </div>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--这是首页的代码-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ .Title }}</title>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <main>
+      {{ partial "header.html" . }}
+      {{- $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
+      <div class="content-wrapper">
+        {{ range $paginator.Pages }}
+        <div class="list-content">
+          <div class="post-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </div>
+
+          <div class="post-date">
+            {{ dateFormat "Monday, Jan 2, 2006" .Date }}
+          </div>
+          <div class="post-summary">
+            {{ .Summary | truncate 300 }}
+          </div>
+
+          <div class="post-more">
+            <a href="{{ .RelPermalink }}">more</a>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      {{ partial "footer.html" . }}
+    </main>
+    {{- partial "script-end.html" . -}}
+  </body>
+</html>
