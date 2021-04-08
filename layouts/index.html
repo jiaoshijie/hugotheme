@@ -9,7 +9,7 @@
   <body>
     <main>
       {{ partial "header.html" . }}
-      {{- $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
+      {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
       <div class="content-wrapper">
         {{ range $paginator.Pages }}
         <div class="list-content">
@@ -30,8 +30,22 @@
         </div>
         {{ end }}
       </div>
+      <!-- Page 索引 -->
+      <div class="PageNav">
+        <div class="Prev">
+          {{if $paginator.HasPrev}}
+          <a href="{{ $paginator.Prev.URL | absURL }}">Prev</a>
+          {{end}}
+        </div>
+        <div class="Next">
+          {{if $paginator.HasNext}}
+            <a href="{{ $paginator.Next.URL | absURL }}">Next</a>
+          {{end}}
+        </div>
+      </div>
       {{ partial "footer.html" . }}
+
     </main>
-    {{- partial "script-end.html" . -}}
+    {{ partial "script-end.html" . }}
   </body>
 </html>
