@@ -1,1 +1,1 @@
-# 写一个自己的主题
+# simple hugo theme

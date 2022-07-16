@@ -8,9 +8,9 @@
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 }
 
-img {
-  width: 100%;
-}
+/* img { */
+/*   width: 100%; */
+/* } */
 
 /* 一些变量 */
 :root {
@@ -414,3 +414,9 @@ footer a {
 /*   border: inherit; */
 /*   color: #515151; */
 /* } */
+
+/* shortcodes */
+
+.shortcodes.imgsc {
+  text-align: center;
+}
